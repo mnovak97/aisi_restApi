@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestApi.Context;
+using RestApi.RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers(opt => opt.SuppressAsyncSuffixInActionNames = fa
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<DatabaseContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("MyConnectionString")));
+builder.Services.AddScoped<IMessageProducer, RabbitMQProducer>();
 
 var app = builder.Build();
 

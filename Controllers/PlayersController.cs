@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using RestApi.Context;
 using RestApi.Dtos;
 using RestApi.Models;
+using RestApi.RabbitMQ;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,10 +14,12 @@ namespace RestApi.Controllers
     public class PlayersController : ControllerBase
     {
         private readonly DatabaseContext _context;
+        private readonly IMessageProducer _messagePublisher;
 
-        public PlayersController(DatabaseContext context)
+        public PlayersController(DatabaseContext context, IMessageProducer messagePublisher)
         {
             _context = context;
+            _messagePublisher = messagePublisher;
         }
 
         // GET: api/values
@@ -24,6 +27,7 @@ namespace RestApi.Controllers
         public ActionResult<IEnumerable<PlayerDto>> GetPlayers()      
         {
             var players = _context.Players;
+            _messagePublisher.SendMessage(players,"GET");
             return players.Select(PlayerDto.FromPlayer).ToList();
         }
 
@@ -47,6 +51,7 @@ namespace RestApi.Controllers
         {
             _context.Players.Add(player);
             await _context.SaveChangesAsync();
+            _messagePublisher.SendMessage(player,"POST");
             return CreatedAtAction(nameof(GetPlayerAsync),new {id = player.Id},player);
         }
 
@@ -71,6 +76,7 @@ namespace RestApi.Controllers
      
             try
             {
+                _messagePublisher.SendMessage(player, "PUT");
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException) when (!PlayerExists(id))
@@ -93,6 +99,7 @@ namespace RestApi.Controllers
             }
 
             _context.Players.Remove(player);
+            _messagePublisher.SendMessage(player, "DELETE");
             await _context.SaveChangesAsync();
             return NoContent();
         }

@@ -16,6 +16,7 @@
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Npgsql.dll
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/RabbitMQ.Client.dll
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/martinnovak/Projects/RestApi/RestApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll

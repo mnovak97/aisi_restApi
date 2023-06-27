@@ -1,0 +1,17 @@
+D
+;D:\Documents\GitHub\aisi_restApi\Context\DatabaseContext.csutf-8J
+AD:\Documents\GitHub\aisi_restApi\Controllers\PlayersController.csutf-8H
+?D:\Documents\GitHub\aisi_restApi\Controllers\TeamsController.csutf-8;
+2D:\Documents\GitHub\aisi_restApi\Dtos\PlayerDto.csutf-89
+0D:\Documents\GitHub\aisi_restApi\Dtos\TeamDto.csutf-8S
+JD:\Documents\GitHub\aisi_restApi\Filter\XContentTypeOptionsHeaderFilter.csutf-8N
+ED:\Documents\GitHub\aisi_restApi\Migrations\20230420120747_Initial.csutf-8Y
+ND:\Documents\GitHub\aisi_restApi\Migrations\20230420120747_Initial.Designer.csutf-8V
+KD:\Documents\GitHub\aisi_restApi\Migrations\DatabaseContextModelSnapshot.csutf-8:
+1D:\Documents\GitHub\aisi_restApi\Models\Player.csutf-88
+/D:\Documents\GitHub\aisi_restApi\Models\Team.csutf-84
++D:\Documents\GitHub\aisi_restApi\Program.csutf-8V
+KD:\Documents\GitHub\aisi_restApi\obj\Debug\net7.0\RestApi.GlobalUsings.g.csutf-8k
+`D:\Documents\GitHub\aisi_restApi\obj\Debug\net7.0\.NETCoreApp,Version=v7.0.AssemblyAttributes.csutf-8T
+ID:\Documents\GitHub\aisi_restApi\obj\Debug\net7.0\RestApi.AssemblyInfo.csutf-8g
+\D:\Documents\GitHub\aisi_restApi\obj\Debug\net7.0\RestApi.MvcApplicationPartsAssemblyInfo.csutf-8

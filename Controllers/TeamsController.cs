@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApi.Context;
 using RestApi.Dtos;
@@ -20,6 +21,7 @@ namespace RestApi.Controllers
 
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<TeamDto>> GetTeams()
         {
             var teams = _context.Teams.Include(t => t.Players);

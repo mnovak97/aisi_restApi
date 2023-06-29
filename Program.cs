@@ -1,12 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using RestApi;
 using RestApi.Context;
 using RestApi.Filter;
+using RestApi.Models;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Web.Http.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 
 builder.Services.AddControllers(opt => opt.SuppressAsyncSuffixInActionNames = false);

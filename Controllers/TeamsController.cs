@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApi.Context;
+using RestApi.Deserialization;
 using RestApi.Dtos;
 using RestApi.Models;
 
@@ -97,6 +98,37 @@ namespace RestApi.Controllers
             _context.Teams.Remove(team);
             await _context.SaveChangesAsync();
             return NoContent();
+        }
+
+        [HttpGet("serialize")]
+        public void Serialize()
+        {
+            var teams = _context.Teams;
+            try
+            {
+                DeSerialize.Serialize(teams, "teams.json");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("There was an error!");
+            }
+        }
+
+        [HttpGet("deserialize")]
+        public void Deserializer()
+        {
+            try
+            {
+                var objects = DeSerialize.Deserialize<Team>("teams.json");
+                foreach (var obj in objects)
+                {
+                    Console.WriteLine(obj);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("There was an error with deserialization :" + e.Message);
+            }
         }
 
         private bool TeamExists(int id)

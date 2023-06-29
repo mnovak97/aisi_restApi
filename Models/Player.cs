@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace RestApi.Models
 {
 	public class Player
@@ -9,6 +11,11 @@ namespace RestApi.Models
 		public int TeamId { get; set; }
 		public Team Team { get; set; } = default!;
 
-	}
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
+    }
 }
 
